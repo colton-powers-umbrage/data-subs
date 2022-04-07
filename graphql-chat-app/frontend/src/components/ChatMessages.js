@@ -10,6 +10,8 @@ const ChatMessages = () => {
     const unsubscribe = subscribeToMore({
       document: MESSAGES_SUBSCRIPTION,
       updateQuery: (prev, { subscriptionData }) => {
+        //this could be changed to:
+        // return !subscriptionData.data ? prev : { chats: { [...prev.chats, newFeedItem ] } }
         if (!subscriptionData.data) return prev;
         const newFeedItem = subscriptionData.data.messageSent;
         return {

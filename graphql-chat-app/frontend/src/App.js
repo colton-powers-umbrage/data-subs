@@ -13,6 +13,7 @@ function App() {
       <Router>
         <div>
           <Routes>
+            {/* this is a great pattern */}
             {routes.map(route => (
               <Route
                 exact
