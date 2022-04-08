@@ -1,7 +1,7 @@
 import React from 'react';
-import { Form, Button } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 import { ADD_MESSAGE } from '../graphql';
+import './AddMessage.scss'
 
 const AddMessage = () => {
   let input;
@@ -11,7 +11,7 @@ const AddMessage = () => {
   if (error) return <p>Error :(</p>;
   return (
     <div>
-      <Form
+      <form
         style={{ maxWidth: '75%', display: 'inline-block' }}
         onSubmit={e => {
           e.preventDefault();
@@ -21,20 +21,20 @@ const AddMessage = () => {
           input.value = '';
         }}
       >
-        <Form.Group>
-          <Form.Label>Your Message</Form.Label>
-          <Form.Control
+        <div>
+          <h1>Your Message</h1>
+          <input
             ref={node => {
               input = node;
             }}
             placeholder='Enter message'
           />
-        </Form.Group>
+        </div>
         <br />
-        <Button variant='primary' type='submit'>
+        <button className='message-submit' type='submit'>
           Enter
-        </Button>
-      </Form>
+        </button>
+      </form>
     </div>
   );
 };
